@@ -2,17 +2,19 @@
 let minutes = parseInt(document.getElementById("minutes").innerHTML)
 let seconds = "00"
 let interval = prompt("Berapa Interval yang dibutuhkan ?", "4")
-let restInterval = 1
-let minutinput = prompt("Berapa jumlah menit yang diinginkan?", "24")
-let resetMinutes = ""
 interval = parseInt(interval)
+let restInterval = 1
+let bandingInterval = interval
+let minutinput = prompt("Berapa jumlah menit yang diinginkan?", "24")
 minutinput = parseInt(minutinput)
+let resetMinutes = minutinput
+let bandingMinutes = resetMinutes
 
 if (minutinput != null) {
     document.getElementById("minutes").innerHTML = minutinput
 }
 
-if (isNaN(minutinput) || isNaN(interval)) {
+if (isNaN(minutinput) || isNaN(interval) || !bandingMinutes || !bandingInterval) {
   location.reload()
 }
 
