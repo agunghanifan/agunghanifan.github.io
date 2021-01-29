@@ -22,30 +22,40 @@ document.getElementById("seconds").innerHTML = seconds
 
 document.getElementById("isInterval").innerHTML = interval 
 
+// function myFunction() {
+//   var x = document.getElementById("button1");
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display === "none";
+//   }
+// }
+
 function start_timer() {
   click_sound.play()
-    // ganti menit dan detik untuk mulai menghitung
-  if (minutes < 10) {
-      if (minutes <= 0) {
-        minutes = "0" + 0
-      } else {
-          minutes = "0" + (minutes - 1)
-      }
-  } else {
-      minutes = minutes - 1
-    }
+  // ganti menit dan detik untuk mulai menghitung
+  document.getElementById("dissapear").style.display = "none"
+  console.log(document.getElementById("dissapear"))
 
+  if (minutes < 10) {
+    if (minutes <= 0) {
+      minutes = "0" + 0
+    } else {
+      minutes = "0" + (minutes - 1)
+    }
+  } else {
+    minutes = minutes - 1
+  }
   seconds = 59
-    
   
   // menambahkan menit dan detik ke indexhtml
   document.getElementById("minutes").innerHTML = minutes
   document.getElementById("seconds").innerHTML = seconds
-
+  
   // start hitung mundur
   var minutes_interval = setInterval(minutesTimer, 60000)
   var seconds_interval = setInterval(secondsTimer, 1000)
-
+  
   
   // counter menit
   function minutesTimer() {
@@ -67,7 +77,7 @@ function start_timer() {
         // stop counter
         if (interval === restInterval) {
           document.getElementById("isInterval").innerHTML =
-            `Jumlah Interval 0`
+          `Jumlah Interval 0`
           document.getElementById("isInterval").classList.add("show_message")
           minutes = 0
           clearInterval(minutes_interval)
@@ -78,7 +88,7 @@ function start_timer() {
           "Sesi Selesai!! Silahkan Istirahat atau klik reset untuk mengulang"
           document.getElementById("done").classList.add("show_message")
           bell.play()
-
+          
         } else {
           restInterval++   
           minutes = resetMinutes
@@ -86,7 +96,7 @@ function start_timer() {
           `Saat ini Interval ke ${restInterval} dari jumlah interval ${interval} `
           document.getElementById("isInterval").classList.add("show_message") 
           intBell.play()
-          }
+        }
         
       }
       // reset ke 60
@@ -95,4 +105,9 @@ function start_timer() {
   }
 }
 
+
+// function test() {
+//   document.getElementById("button1").innerHTML = "Reset"
+//   document.getElementById("butt").onclick = location.href="./index.html"
+// }
 
