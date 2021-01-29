@@ -2,14 +2,18 @@
 let minutes = parseInt(document.getElementById("minutes").innerHTML)
 let seconds = "00"
 let interval = prompt("Berapa Interval yang dibutuhkan ?", "4")
-interval = parseInt(interval)
 let restInterval = 1
 let minutinput = prompt("Berapa jumlah menit yang diinginkan?", "24")
+let resetMinutes = ""
+interval = parseInt(interval)
 minutinput = parseInt(minutinput)
-let resetMinutes = minutinput
 
 if (minutinput != null) {
     document.getElementById("minutes").innerHTML = minutinput
+}
+
+if (isNaN(minutinput) || isNaN(interval)) {
+  location.reload()
 }
 
 // Audio files
@@ -21,15 +25,6 @@ minutes = document.getElementById("minutes").innerHTML
 document.getElementById("seconds").innerHTML = seconds
 
 document.getElementById("isInterval").innerHTML = interval 
-
-// function myFunction() {
-//   var x = document.getElementById("button1");
-//   if (x.style.display === "none") {
-//     x.style.display = "block";
-//   } else {
-//     x.style.display === "none";
-//   }
-// }
 
 function start_timer() {
   click_sound.play()
@@ -104,10 +99,4 @@ function start_timer() {
     }
   }
 }
-
-
-// function test() {
-//   document.getElementById("button1").innerHTML = "Reset"
-//   document.getElementById("butt").onclick = location.href="./index.html"
-// }
 
